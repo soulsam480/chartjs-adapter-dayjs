@@ -1,0 +1,54 @@
+<script setup lang="ts">
+import { computed, ref, watch } from 'vue';
+import { DoughnutChart } from '@soulsam480/vue-chart';
+import { Chart, ChartData, ChartOptions, registerables } from 'chart.js';
+
+Chart.register(...registerables);
+
+const dataValues = ref([30, 40, 60, 70, 5]);
+const toggleLegend = ref(true);
+
+const testData = computed<ChartData<'doughnut'>>(() => ({
+  labels: ['Paris', 'Nîmes', 'Toulon', 'Perpignan', 'Autre'],
+  datasets: [
+    {
+      data: dataValues.value,
+      backgroundColor: ['#77CEFF', '#0079AF', '#123E6B', '#97B0C4', '#A5C8ED'],
+    },
+  ],
+}));
+
+const options = computed<ChartOptions<'doughnut'>>(() => ({
+  scales: {
+    myScale: {
+      type: 'logarithmic',
+      position: toggleLegend.value ? 'left' : 'right',
+    },
+  },
+  plugins: {
+    legend: {
+      position: toggleLegend.value ? 'top' : 'bottom',
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Doughnut Chart',
+    },
+  },
+}));
+
+const chartRef = ref<Chart<'doughnut'> | null>(null);
+
+// will be available only after first render
+// use nextTick() or add a check to see if it's been assigned or not
+const assignRef = () => chartRef;
+
+watch(chartRef, (val) => {
+  console.log(val?.data.datasets);
+});
+</script>
+
+<template>
+  <div class="home">
+    <doughnut-chart :chart-ref="assignRef" :chart-data="testData" :options="options" chart-id="some-chart" />
+  </div>
+</template>

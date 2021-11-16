@@ -1,0 +1,13 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@soulsam480/vue-chart": "^0.1.0",
+    "chartjs-adapter-dayjs": "^1.0.0"
+  }
+}

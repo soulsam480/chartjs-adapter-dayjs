@@ -1,0 +1,38 @@
+{
+  "name": "chartjs-adapter-dayjs",
+  "version": "0.0.0",
+  "description": "dayjs date adapter for chartjs",
+  "author": {
+    "name": "Sambit Sahoo",
+    "url": "https://github.com/soulsam480"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev:lib": "cd lib && npm run dev",
+    "build:lib": "cd lib && npm run build",
+    "dev:app": "cd app && npm run dev",
+    "build:app": "cd app && npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/chartjs-adapter-dayjs.umd.js",
+  "module": "./dist/chartjs-adapter-dayjs.es.js",
+  "typings": "./dist/index.d.ts",
+  "sideEffects": false,
+  "devDependencies": {
+    "chart.js": "^3.6.0",
+    "dayjs": "^1.10.7",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.2",
+    "vite": "latest",
+    "@vitejs/plugin-vue": "latest"
+  },
+  "dependencies": {
+    "vue": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soulsam480/chartjs-adapter-dayjs.git"
+  }
+}
